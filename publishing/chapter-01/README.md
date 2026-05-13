@@ -2,6 +2,8 @@
 
 This directory contains generated platform-specific editions of Chapter 1.
 
+<sub>Chihvane Xiang</sub>
+
 Canonical source:
 
 - `chapters/chapter-01/final/package-v3/chapter1.pdf`

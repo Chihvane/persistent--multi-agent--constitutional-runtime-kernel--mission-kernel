@@ -10,6 +10,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+AUTHOR = "Chihvane Xiang"
 
 DIV_OPEN_RE = re.compile(r"^:{3,}\s*(definition|example)\s*$")
 DIV_CLOSE_RE = re.compile(r"^:{3,}\s*$")
@@ -108,6 +109,18 @@ def convert_images(text: str, prefix: str) -> str:
     return text.replace("](diagrams/", f"]({prefix}")
 
 
+def insert_article_signature(text: str, signature: str) -> str:
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if line.startswith("### Chapter 1"):
+            return "\n".join(lines[: index + 1] + ["", signature] + lines[index + 1 :])
+    return f"{signature}\n\n{text}"
+
+
+def signature_footer() -> str:
+    return f"<sub>{AUTHOR}</sub>"
+
+
 def convert_github_figures(text: str, edition: Edition) -> str:
     def repl(match: re.Match[str]) -> str:
         alt, path = match.groups()
@@ -143,12 +156,14 @@ def convert_github(text: str, edition: Edition) -> str:
     return f"""---
 layout: page
 title: {edition.github_title}
+author: {AUTHOR}
 permalink: {edition.github_permalink}
 ---
 
 <article class="chapter-page chapter-page-{edition.slug}" markdown="1">
 
 <p class="chapter-canonical">Canonical final artifact: <a href="{edition.github_pdf_link}">chapter1.pdf</a>. This {edition.label} GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.</p>
+<p class="chapter-signature">{AUTHOR}</p>
 
 {body}
 
@@ -158,19 +173,12 @@ permalink: {edition.github_permalink}
 
 def flatten_for_plain_markdown(text: str, image_mode: str) -> str:
     output: list[str] = []
-    current_block: str | None = None
 
     for line in text.splitlines():
         m = DIV_OPEN_RE.match(line)
         if m:
-            current_block = m.group(1)
             output.append("")
             output.append("---")
-            output.append(
-                "**Definition / Structure Rule**"
-                if current_block == "definition"
-                else "**Scenario / Example**"
-            )
             output.append("")
             continue
 
@@ -178,7 +186,6 @@ def flatten_for_plain_markdown(text: str, image_mode: str) -> str:
             output.append("")
             output.append("---")
             output.append("")
-            current_block = None
             continue
 
         img = IMAGE_RE.match(line.strip())
@@ -188,11 +195,13 @@ def flatten_for_plain_markdown(text: str, image_mode: str) -> str:
             if image_mode == "substack":
                 output.append(f"[Figure upload: `{filename}`]")
                 output.append("")
-                output.append(f"Caption: {alt}")
+                output.append(f"_Caption: {alt}_")
                 output.append("")
-                output.append(f"Source image file: `assets/{filename}`")
+                output.append(f"_Source image file: `assets/{filename}`_")
             else:
                 output.append(f"![{alt}](assets/{filename})")
+                output.append("")
+                output.append(f"<sub>{html.escape(alt)}</sub>")
             continue
 
         output.append(line)
@@ -201,13 +210,16 @@ def flatten_for_plain_markdown(text: str, image_mode: str) -> str:
 
 
 def convert_substack(text: str) -> str:
-    return flatten_for_plain_markdown(text, "substack")
+    body = flatten_for_plain_markdown(text, "substack")
+    return insert_article_signature(body, f"_{AUTHOR}_")
 
 
 def convert_hugging_face(text: str, edition: Edition) -> str:
     body = flatten_for_plain_markdown(text, "hugging-face")
+    body = insert_article_signature(body, f'<p align="right"><sub>{AUTHOR}</sub></p>')
     return f"""---
 title: {edition.hf_title}
+author: {AUTHOR}
 tags:
 - ai-agents
 - multi-agent-systems
@@ -233,13 +245,15 @@ Use `chapter1.substack.md` as the paste source for Substack.
 
 ## Notes
 
-Substack does not preserve pandoc div blocks or custom CSS. The conversion replaces PDF red/green boxes with plain Markdown separators and visible labels:
+Substack does not preserve pandoc div blocks or custom CSS. The conversion flattens PDF red/green boxes into plain Markdown separators and keeps each original box title as the visible label.
 
-- `Definition / Structure Rule`
-- `Scenario / Example`
+- The subtle author signature appears under the chapter subtitle.
+- Figure upload markers include the source filename and caption.
+- Do not paste the GitHub Pages HTML callout wrappers into Substack.
 
 At each `[Figure upload: ...]` marker, upload the matching PNG from `assets/`.
 
+{signature_footer()}
 """
 
 
@@ -254,7 +268,15 @@ Use `README.md` as the Hugging Face project or Space README.
 - `chapter1.pdf`: canonical final PDF for faithful layout and final text
 - `assets/*.png`: figure images referenced by the README
 
-The README uses ordinary relative Markdown image links, so keep the `assets/` directory next to `README.md` when uploading.
+## Format
+
+- The README front matter includes `author: {AUTHOR}`.
+- The subtle author signature appears under the chapter subtitle.
+- Definition/example boxes are flattened with ordinary Markdown separators and original box titles.
+- Figures use relative Markdown image links plus a small caption line.
+- Keep the `assets/` directory next to `README.md` when uploading.
+
+{signature_footer()}
 
 """
 
@@ -288,10 +310,12 @@ Generated platform editions for Chapter 1 final v3 ({edition.label}).
 - `chapter1.pdf` remains the final authority for layout and text.
 - The conversion uses the final package Markdown instead of direct PDF text extraction because direct PDF extraction can introduce line-break, table, image, and punctuation loss.
 - GitHub Pages keeps definition/example blocks as styled HTML containers.
-- Substack flattens definition/example blocks into plain Markdown because Substack does not preserve custom CSS or pandoc divs.
-- Hugging Face uses README-friendly Markdown with relative image assets.
+- Substack flattens definition/example blocks into plain Markdown because Substack does not preserve custom CSS or pandoc divs; original block titles are retained.
+- Hugging Face uses README-friendly Markdown with relative image assets and small caption lines.
 - All ten diagram PNGs are preserved for Substack and Hugging Face packages.
+- Generated text editions include the subtle author signature: {AUTHOR}.
 
+{signature_footer()}
 """
 
 

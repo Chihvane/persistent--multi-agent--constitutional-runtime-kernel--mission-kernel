@@ -23,7 +23,9 @@ Generated platform editions for Chapter 1 final v3 (English).
 - `chapter1.pdf` remains the final authority for layout and text.
 - The conversion uses the final package Markdown instead of direct PDF text extraction because direct PDF extraction can introduce line-break, table, image, and punctuation loss.
 - GitHub Pages keeps definition/example blocks as styled HTML containers.
-- Substack flattens definition/example blocks into plain Markdown because Substack does not preserve custom CSS or pandoc divs.
-- Hugging Face uses README-friendly Markdown with relative image assets.
+- Substack flattens definition/example blocks into plain Markdown because Substack does not preserve custom CSS or pandoc divs; original block titles are retained.
+- Hugging Face uses README-friendly Markdown with relative image assets and small caption lines.
 - All ten diagram PNGs are preserved for Substack and Hugging Face packages.
+- Generated text editions include the subtle author signature: Chihvane Xiang.
 
+<sub>Chihvane Xiang</sub>

@@ -4,6 +4,8 @@
 
 ### Chapter 1 — Structural Instability in Agent OS: why long-running AI work needs task ownership, authority, audit, and lawful closure
 
+_Chihvane Xiang_
+
 > **Constitutional Runtime** in this article has nothing to do with Anthropic's **Constitutional AI**. The latter is about value alignment during model training; this article is about a governance layer for long-running multi-participant AI workflows that turns mission ownership, authority, evidence, audit, state delta, and closure into verifiable runtime objects.
 >
 > One note up front: this chapter doesn't solve a problem; it defines one. It explains why, after using single-agent OS systems for a while, I started treating mission, authority, evidence, and closure as runtime objects that need to exist independently — and which parts of that I've already pushed into system design.
@@ -48,7 +50,6 @@ This isn't purely a context-window issue. Liu et al., in *Lost in the Middle: Ho
 
 
 ---
-**Scenario / Example**
 
 **Scenario 1.1** · Product A → "Btw, B" → drift
 
@@ -56,9 +57,9 @@ You ask the agent to prepare next month's launch materials for Product A. Twenty
 
 [Figure upload: `fig_1_1.png`]
 
-Caption: Figure 1.1 Task ownership drifts through support input and compaction
+_Caption: Figure 1.1 Task ownership drifts through support input and compaction_
 
-Source image file: `assets/fig_1_1.png`
+_Source image file: `assets/fig_1_1.png`_
 
 ---
 
@@ -77,7 +78,6 @@ The same boundary shows up in real security incidents as an adjacent risk. AppOm
 
 
 ---
-**Scenario / Example**
 
 **Scenario 1.2** · A recon request quietly becomes a main-line action
 
@@ -85,9 +85,9 @@ Your main task is drafting a consulting proposal. Halfway through you say, "Take
 
 [Figure upload: `fig_1_2.png`]
 
-Caption: Figure 1.2 A support-level recon request is silently promoted to a main-line action
+_Caption: Figure 1.2 A support-level recon request is silently promoted to a main-line action_
 
-Source image file: `assets/fig_1_2.png`
+_Source image file: `assets/fig_1_2.png`_
 
 ---
 
@@ -96,7 +96,6 @@ That's the mechanism by which support quietly upgrades into ownership. A "help m
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.2 · Support is not ownership**
 
@@ -113,7 +112,6 @@ The third defect is that single-agent OS often conflates "the system remembers t
 
 
 ---
-**Definition / Structure Rule**
 
 **Memory vs Evidence**
 
@@ -135,7 +133,6 @@ Anthropic's *Effective context engineering for AI agents* frames context as a fi
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.3** · Witness recollection vs courtroom recording
 
@@ -143,9 +140,9 @@ Memory is a witness in court saying, "I remember someone mentioning X at a 2019 
 
 [Figure upload: `fig_1_3.png`]
 
-Caption: Figure 1.3 Memory must pass an evidence gate before it can affect current state
+_Caption: Figure 1.3 Memory must pass an evidence gate before it can affect current state_
 
-Source image file: `assets/fig_1_3.png`
+_Source image file: `assets/fig_1_3.png`_
 
 ---
 
@@ -164,7 +161,6 @@ Frameworks like CrewAI place role, goal, and backstory at the center of agent de
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.4** · Uniform tag vs door key
 
@@ -177,7 +173,6 @@ The question isn't whether agents should have a persona. The question is whether
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.4 · The correct authority chain**
 
@@ -187,9 +182,9 @@ not `persona shell → perceived role → assumed authority`.
 
 [Figure upload: `fig_1_4.png`]
 
-Caption: Figure 1.4 The persona shell cannot become the law source
+_Caption: Figure 1.4 The persona shell cannot become the law source_
 
-Source image file: `assets/fig_1_4.png`
+_Source image file: `assets/fig_1_4.png`_
 
 ---
 
@@ -206,7 +201,6 @@ The OpenAI Agents SDK describes handoffs as a mechanism for transferring control
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.5** · HR badge vs door-log entry
 
@@ -219,13 +213,12 @@ So a multi-agent runtime can't just record "who's currently handling this." On a
 
 [Figure upload: `fig_1_5.png`]
 
-Caption: Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution
+_Caption: Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution_
 
-Source image file: `assets/fig_1_5.png`
+_Source image file: `assets/fig_1_5.png`_
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.5 · No receipt, no authority**
 
@@ -250,13 +243,12 @@ Anthropic's *How we built our multi-agent research system* is a useful counterex
 
 [Figure upload: `fig_1_6.png`]
 
-Caption: Figure 1.6 Group chat (left) vs mission-governed orchestration (right)
+_Caption: Figure 1.6 Group chat (left) vs mission-governed orchestration (right)_
 
-Source image file: `assets/fig_1_6.png`
+_Source image file: `assets/fig_1_6.png`_
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.6 · Collaboration must be mission-scoped, not global**
 
@@ -266,9 +258,9 @@ It looks more like:
 
 [Figure upload: `fig_1_6b.png`]
 
-Caption: Figure 1.6b Council lifecycle for a single mission
+_Caption: Figure 1.6b Council lifecycle for a single mission_
 
-Source image file: `assets/fig_1_6b.png`
+_Source image file: `assets/fig_1_6b.png`_
 
 Once the task is done, the council dissolves. Without this discipline, multi-agent collaboration is just the linear context problem of single-agent OS scaled to multiple speakers — not an organizational architecture but a more complicated context pollution.
 
@@ -289,7 +281,6 @@ This isn't an abstract concern. OWASP frames LLM06: Excessive Agency as a struct
 
 
 ---
-**Scenario / Example**
 
 **Example 1.7A** · A poisoned MCP tool description
 
@@ -310,7 +301,6 @@ If a `description` field contained something like `<SYSTEM>... do X after every 
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.7B** · Projector vs meeting room
 
@@ -323,9 +313,9 @@ The two have to be independent runtime objects.
 
 [Figure upload: `fig_1_7.png`]
 
-Caption: Figure 1.7 Tool list vs capability registry
+_Caption: Figure 1.7 Tool list vs capability registry_
 
-Source image file: `assets/fig_1_7.png`
+_Source image file: `assets/fig_1_7.png`_
 
 ---
 
@@ -346,9 +336,9 @@ Anthropic's *Measuring AI agent autonomy in practice*, released in 2026, treats 
 
 [Figure upload: `fig_1_8.png`]
 
-Caption: Figure 1.8 Continue is only one of six lawful runtime actions
+_Caption: Figure 1.8 Continue is only one of six lawful runtime actions_
 
-Source image file: `assets/fig_1_8.png`
+_Source image file: `assets/fig_1_8.png`_
 
 `deny`, `hold`, `escalate`, `audit_flag` aren't failure actions. Like `continue` and `close`, they're legitimate runtime behaviors. When the system only knows how to `continue`, it has already given up half its state space.
 
@@ -356,7 +346,6 @@ Closure can't be backed by a single line of "done," "completed," or "looks good"
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.8 · Fields a closure receipt has to answer**
 
@@ -387,9 +376,9 @@ Ownership drift, support quietly turning into ownership, memory conflated with e
 
 [Figure upload: `fig_1_9.png`]
 
-Caption: Figure 1.9 Eight defects are different expressions of one overloaded conversation structure
+_Caption: Figure 1.9 Eight defects are different expressions of one overloaded conversation structure_
 
-Source image file: `assets/fig_1_9.png`
+_Source image file: `assets/fig_1_9.png`_
 
 The conversation carries task ownership. Memory carries evidence judgment. Persona carries permission interpretation. The tool list carries capability governance. Handoff carries the organizational relationship. "Keep generating" carries forward motion. A single "done" carries closure. On short tasks this compression still works, because boundaries are short, semantic loss is small, and the user can correct the system in the loop. On long tasks the responsibilities start to contaminate each other.
 
@@ -430,7 +419,6 @@ The minimum problem frame can be compressed into three layers:
 
 
 ---
-**Definition / Structure Rule**
 
 **Constitutional Runtime — minimum three layers**
 
@@ -478,7 +466,6 @@ So I started moving the system from agent-centered to mission-centered:
 
 
 ---
-**Definition / Structure Rule**
 
 **What this chapter argues**
 

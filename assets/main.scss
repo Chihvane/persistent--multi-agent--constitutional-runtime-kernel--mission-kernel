@@ -143,6 +143,15 @@
   padding: 0.75rem 0.95rem;
 }
 
+.chapter-signature {
+  color: #7a838c;
+  font-family: var(--chapter-sans);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin: -1.05rem 0 1.85rem;
+  text-align: right;
+}
+
 .chapter-page > blockquote {
   background: #f8f8f6;
   border-left: 4px solid #8e98a4;

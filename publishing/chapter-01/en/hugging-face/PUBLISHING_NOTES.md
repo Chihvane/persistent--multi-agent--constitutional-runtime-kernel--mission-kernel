@@ -8,5 +8,13 @@ Use `README.md` as the Hugging Face project or Space README.
 - `chapter1.pdf`: canonical final PDF for faithful layout and final text
 - `assets/*.png`: figure images referenced by the README
 
-The README uses ordinary relative Markdown image links, so keep the `assets/` directory next to `README.md` when uploading.
+## Format
+
+- The README front matter includes `author: Chihvane Xiang`.
+- The subtle author signature appears under the chapter subtitle.
+- Definition/example boxes are flattened with ordinary Markdown separators and original box titles.
+- Figures use relative Markdown image links plus a small caption line.
+- Keep the `assets/` directory next to `README.md` when uploading.
+
+<sub>Chihvane Xiang</sub>
 

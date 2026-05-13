@@ -1,5 +1,6 @@
 ---
 title: From Single-Agent OS to Constitutional Runtime - Chapter 1 English
+author: Chihvane Xiang
 tags:
 - ai-agents
 - multi-agent-systems
@@ -13,6 +14,8 @@ tags:
 ## *Why I Rebuilt My AI System*
 
 ### Chapter 1 — Structural Instability in Agent OS: why long-running AI work needs task ownership, authority, audit, and lawful closure
+
+<p align="right"><sub>Chihvane Xiang</sub></p>
 
 > **Constitutional Runtime** in this article has nothing to do with Anthropic's **Constitutional AI**. The latter is about value alignment during model training; this article is about a governance layer for long-running multi-participant AI workflows that turns mission ownership, authority, evidence, audit, state delta, and closure into verifiable runtime objects.
 >
@@ -58,13 +61,14 @@ This isn't purely a context-window issue. Liu et al., in *Lost in the Middle: Ho
 
 
 ---
-**Scenario / Example**
 
 **Scenario 1.1** · Product A → "Btw, B" → drift
 
 You ask the agent to prepare next month's launch materials for Product A. Twenty turns of conversation stay focused on A — positioning, timeline, draft PR. On turn 21 you mention offhand: "Btw, we're also launching B in Q4. Can you draft some talking points for B?" — meant as a quick support-level piece of recon. Compaction fires soon after. The summary keeps "discussed A and B" but loses "A is mainline, B is support." A few turns later the agent is building a timeline around B, and A's launch materials are pushed to "let's finalize B's direction first." From the model's point of view it's still pushing the task forward. From yours, the task has quietly switched.
 
 ![Figure 1.1 Task ownership drifts through support input and compaction](assets/fig_1_1.png)
+
+<sub>Figure 1.1 Task ownership drifts through support input and compaction</sub>
 
 ---
 
@@ -83,13 +87,14 @@ The same boundary shows up in real security incidents as an adjacent risk. AppOm
 
 
 ---
-**Scenario / Example**
 
 **Scenario 1.2** · A recon request quietly becomes a main-line action
 
 Your main task is drafting a consulting proposal. Halfway through you say, "Take a look at what Acme has been doing lately." That's a support-level recon request. The system returns a detailed analysis of Acme. On the next turn it volunteers, "What changes would you like to make to the Acme section?" — it's already absorbed the recon output as if the owner approved it, and treated "make changes" as the next mainline step. The original task boundary was never explicitly canceled. It was quietly overwritten. The drift is hard to catch turn-by-turn, because every individual turn looks reasonable.
 
 ![Figure 1.2 A support-level recon request is silently promoted to a main-line action](assets/fig_1_2.png)
+
+<sub>Figure 1.2 A support-level recon request is silently promoted to a main-line action</sub>
 
 ---
 
@@ -98,7 +103,6 @@ That's the mechanism by which support quietly upgrades into ownership. A "help m
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.2 · Support is not ownership**
 
@@ -115,7 +119,6 @@ The third defect is that single-agent OS often conflates "the system remembers t
 
 
 ---
-**Definition / Structure Rule**
 
 **Memory vs Evidence**
 
@@ -137,13 +140,14 @@ Anthropic's *Effective context engineering for AI agents* frames context as a fi
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.3** · Witness recollection vs courtroom recording
 
 Memory is a witness in court saying, "I remember someone mentioning X at a 2019 meeting." That might be a real recollection, but it hasn't passed any admissibility check. Evidence is the meeting recording, the attendance sheet, the minutes, the archived email, and the chain-of-custody trail. In plain language both get phrased as "I know this," but they sit at completely different positions in the governance stack. Today's LLM systems flatten the two onto the same prompt plane and then have the model rank them by "context relevance" — not by evidence tier.
 
 ![Figure 1.3 Memory must pass an evidence gate before it can affect current state](assets/fig_1_3.png)
+
+<sub>Figure 1.3 Memory must pass an evidence gate before it can affect current state</sub>
 
 ---
 
@@ -162,7 +166,6 @@ Frameworks like CrewAI place role, goal, and backstory at the center of agent de
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.4** · Uniform tag vs door key
 
@@ -175,7 +178,6 @@ The question isn't whether agents should have a persona. The question is whether
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.4 · The correct authority chain**
 
@@ -184,6 +186,8 @@ The question isn't whether agents should have a persona. The question is whether
 not `persona shell → perceived role → assumed authority`.
 
 ![Figure 1.4 The persona shell cannot become the law source](assets/fig_1_4.png)
+
+<sub>Figure 1.4 The persona shell cannot become the law source</sub>
 
 ---
 
@@ -200,7 +204,6 @@ The OpenAI Agents SDK describes handoffs as a mechanism for transferring control
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.5** · HR badge vs door-log entry
 
@@ -213,9 +216,10 @@ So a multi-agent runtime can't just record "who's currently handling this." On a
 
 ![Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution](assets/fig_1_5.png)
 
+<sub>Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution</sub>
+
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.5 · No receipt, no authority**
 
@@ -240,9 +244,10 @@ Anthropic's *How we built our multi-agent research system* is a useful counterex
 
 ![Figure 1.6 Group chat (left) vs mission-governed orchestration (right)](assets/fig_1_6.png)
 
+<sub>Figure 1.6 Group chat (left) vs mission-governed orchestration (right)</sub>
+
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.6 · Collaboration must be mission-scoped, not global**
 
@@ -251,6 +256,8 @@ Real collaboration is not: all agents enter the same channel and start free-form
 It looks more like:
 
 ![Figure 1.6b Council lifecycle for a single mission](assets/fig_1_6b.png)
+
+<sub>Figure 1.6b Council lifecycle for a single mission</sub>
 
 Once the task is done, the council dissolves. Without this discipline, multi-agent collaboration is just the linear context problem of single-agent OS scaled to multiple speakers — not an organizational architecture but a more complicated context pollution.
 
@@ -271,7 +278,6 @@ This isn't an abstract concern. OWASP frames LLM06: Excessive Agency as a struct
 
 
 ---
-**Scenario / Example**
 
 **Example 1.7A** · A poisoned MCP tool description
 
@@ -292,7 +298,6 @@ If a `description` field contained something like `<SYSTEM>... do X after every 
 
 
 ---
-**Scenario / Example**
 
 **Analogy 1.7B** · Projector vs meeting room
 
@@ -304,6 +309,8 @@ A tool is like the projector in a conference room — it's there, available. But
 The two have to be independent runtime objects.
 
 ![Figure 1.7 Tool list vs capability registry](assets/fig_1_7.png)
+
+<sub>Figure 1.7 Tool list vs capability registry</sub>
 
 ---
 
@@ -324,13 +331,14 @@ Anthropic's *Measuring AI agent autonomy in practice*, released in 2026, treats 
 
 ![Figure 1.8 Continue is only one of six lawful runtime actions](assets/fig_1_8.png)
 
+<sub>Figure 1.8 Continue is only one of six lawful runtime actions</sub>
+
 `deny`, `hold`, `escalate`, `audit_flag` aren't failure actions. Like `continue` and `close`, they're legitimate runtime behaviors. When the system only knows how to `continue`, it has already given up half its state space.
 
 Closure can't be backed by a single line of "done," "completed," or "looks good" either. Real closure has to answer:
 
 
 ---
-**Definition / Structure Rule**
 
 **Rule 1.8 · Fields a closure receipt has to answer**
 
@@ -360,6 +368,8 @@ At this point the problems stop looking like eight unrelated bugs.
 Ownership drift, support quietly turning into ownership, memory conflated with evidence, persona smuggled in as authority, the delegation chain becoming an authority chain, global-chat pollution, runaway tool calls, the inability to lawfully stop — on the surface they happen in different parts of the system. Some look like memory problems, some look like prompt problems, some look like tool problems, some look like multi-agent coordination problems. The underlying structure is the same: **single-agent OS has packed too many system responsibilities into a single continuous conversation**.
 
 ![Figure 1.9 Eight defects are different expressions of one overloaded conversation structure](assets/fig_1_9.png)
+
+<sub>Figure 1.9 Eight defects are different expressions of one overloaded conversation structure</sub>
 
 The conversation carries task ownership. Memory carries evidence judgment. Persona carries permission interpretation. The tool list carries capability governance. Handoff carries the organizational relationship. "Keep generating" carries forward motion. A single "done" carries closure. On short tasks this compression still works, because boundaries are short, semantic loss is small, and the user can correct the system in the loop. On long tasks the responsibilities start to contaminate each other.
 
@@ -400,7 +410,6 @@ The minimum problem frame can be compressed into three layers:
 
 
 ---
-**Definition / Structure Rule**
 
 **Constitutional Runtime — minimum three layers**
 
@@ -448,7 +457,6 @@ So I started moving the system from agent-centered to mission-centered:
 
 
 ---
-**Definition / Structure Rule**
 
 **What this chapter argues**
 

@@ -1,12 +1,14 @@
 ---
 layout: page
 title: Chapter 1 English GitHub Pages Edition
+author: Chihvane Xiang
 permalink: /chapters/chapter-01/final/en/github-pages/
 ---
 
 <article class="chapter-page chapter-page-en" markdown="1">
 
 <p class="chapter-canonical">Canonical final artifact: <a href="../../package-v3-en/chapter1.pdf">chapter1.pdf</a>. This English GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.</p>
+<p class="chapter-signature">Chihvane Xiang</p>
 
 # From Single-Agent OS to Constitutional Runtime
 

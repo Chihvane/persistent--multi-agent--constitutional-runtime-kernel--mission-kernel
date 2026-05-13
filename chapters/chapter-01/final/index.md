@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Chapter 1 Final v3
+author: Chihvane Xiang
 ---
 
 # Chapter 1 Final v3 Version Map
@@ -10,6 +11,8 @@ title: Chapter 1 Final v3
 **Chapter:** Agent OS 的结构性失稳 / Structural Instability in Agent OS
 
 **Date:** 2026-05-14
+
+<sub>Chihvane Xiang</sub>
 
 ## Canonical Artifacts
 

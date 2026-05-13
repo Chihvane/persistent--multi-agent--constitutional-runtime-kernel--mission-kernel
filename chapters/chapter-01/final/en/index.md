@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Chapter 1 English Final v3
+author: Chihvane Xiang
 ---
 
 # Chapter 1 English Final v3
@@ -10,6 +11,8 @@ title: Chapter 1 English Final v3
 **Chapter:** Structural Instability in Agent OS: why long-running AI work needs task ownership, authority, audit, and lawful closure
 
 **Date:** 2026-05-14
+
+<sub>Chihvane Xiang</sub>
 
 ## Canonical Artifact
 
@@ -36,4 +39,3 @@ This PDF is the canonical source for both final formatting and final text.
 ## Publication Rule
 
 Use `chapter1.pdf` as the final reference when preparing GitHub Pages, Hugging Face, and Substack versions. If any platform-specific text differs from the PDF, the PDF wins.
-
