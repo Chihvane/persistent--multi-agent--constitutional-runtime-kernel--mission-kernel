@@ -55,9 +55,15 @@ Recommended first launch:
 - Pay special attention to section `1.12`.
 - Check whether the `1.0 Opening` explanation of "who" matches your intended framing.
 - Verify the 19 reference URLs before public launch.
+- Review the Chapter 1 reference evidence package and confirm every cited reference is backed by the matrix.
 - Review the `Memory vs Evidence` table in section `1.3`.
 - Review the Mission Record field order in section `1.5`.
 - Decide whether the quick-read version should be refreshed before being promoted.
+
+Reference evidence:
+
+- [Chapter 1 Reference Evidence](../chapters/chapter-01/references/)
+- [Citation Evidence Index](../chapters/chapter-01/references/citation-evidence-index.md)
 
 ## Publication Decision
 
@@ -66,4 +72,3 @@ For launch day, publish in this order:
 1. GitHub Pages landing page plus final PDF.
 2. Hugging Face short project README linking back to GitHub Pages.
 3. Substack article prepared from the final Markdown and checked against the final PDF.
-

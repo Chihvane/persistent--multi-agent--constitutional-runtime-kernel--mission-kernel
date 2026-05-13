@@ -27,8 +27,8 @@ This PDF is the canonical source for both final formatting and final text.
 - [chapter1_quickread.pdf](./package-v3/chapter1_quickread.pdf): quick-read PDF from v2
 - [diagrams](./package-v3/diagrams/): 10 figure PNGs and Mermaid sources
 - [Package README](./package-v3/README.md): upstream publishing notes and pre-publish checklist
+- [Reference Evidence Index](../references/): citation matrix and source-evidence manifest
 
 ## Publication Rule
 
 Use `chapter1.pdf` as the final reference when preparing GitHub Pages, Hugging Face, and Substack versions. If any platform-specific text differs from the PDF, the PDF wins.
-

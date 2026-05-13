@@ -10,3 +10,5 @@ _site/
 *.log
 *.swp
 .*.swp
+chapter1_reference_matrix.zip
+chapters/chapter-01/references/raw/
