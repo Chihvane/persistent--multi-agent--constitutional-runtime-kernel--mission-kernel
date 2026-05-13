@@ -7,7 +7,7 @@ title: Whitepaper Outline
 
 ## Working Title
 
-**Persistent Multi-Agent Constitutional Runtime Kernel: A Governance Substrate for Long-Horizon AI Work**
+**constitutional_runtime: A Governance Substrate for Long-Horizon AI Work**
 
 ## Abstract
 
@@ -84,4 +84,3 @@ Describe practical constraints, integration points, storage choices, tool broker
 - minimal runtime schema
 - example governed workflows
 - later source release decision
-

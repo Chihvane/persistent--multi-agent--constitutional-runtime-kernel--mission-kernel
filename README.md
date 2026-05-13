@@ -1,12 +1,16 @@
-# Persistent Multi-Agent Constitutional Runtime Kernel
+# constitutional_runtime
 
-Public mission, article, and whitepaper repository for a governed multi-agent runtime project.
+Public mission, article, and whitepaper repository for **constitutional_runtime**, a governed multi-agent runtime project.
+
+Repository name:
+
+`persistent--multi-agent--constitutional-runtime-kernel--mission-kernel`
 
 This repository is the publication home for the series:
 
 **From Single-Agent OS to Constitutional Runtime: Why I Rebuilt My AI System**
 
-The private implementation/source repository remains separate. This public repository contains essays, release packages, diagrams, citation evidence, publishing formats, and whitepaper drafts.
+The private implementation/source repository remains separate. This public repository contains essays, release packages, diagrams, citation evidence, publishing formats, and whitepaper drafts for `constitutional_runtime`.
 
 ## What This Project Argues
 
@@ -19,7 +23,7 @@ Long-running AI work does not fail only because models hallucinate, forget, or m
 - state-delta records
 - lawful closure
 
-The project explores a shift from a single-agent operating model to a **Constitutional Runtime**: a governance layer where agents are runtime participants, not the whole operating system.
+`constitutional_runtime` explores a shift from a single-agent operating model to a **Constitutional Runtime**: a governance layer where agents are runtime participants, not the whole operating system.
 
 ## Start Here
 
@@ -157,4 +161,3 @@ make check
 - Chapter 1 reference evidence index: complete
 - Full whitepaper: outline stage
 - Chapters 2-8: planned
-

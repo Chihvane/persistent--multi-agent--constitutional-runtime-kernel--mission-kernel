@@ -1,13 +1,17 @@
 ---
 layout: home
-title: Persistent Multi-Agent Constitutional Runtime Kernel
+title: constitutional_runtime
 ---
 
-# From Single-Agent OS to Constitutional Runtime
+# constitutional_runtime
 
-This site is the public mission and documentation home for a governed multi-agent runtime project.
+This site is the public mission and documentation home for `constitutional_runtime`, a governed multi-agent runtime project.
 
 The central claim is simple: long-horizon AI work cannot be made reliable by making a single agent more capable alone. It needs a runtime constitution: task ownership, permission boundaries, audit trails, typed handoffs, and legitimate closure.
+
+Series:
+
+**From Single-Agent OS to Constitutional Runtime: Why I Rebuilt My AI System**
 
 ## Start Reading
 
