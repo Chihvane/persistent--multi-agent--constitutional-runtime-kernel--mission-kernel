@@ -1,0 +1,11 @@
+title: Persistent Multi-Agent Constitutional Runtime Kernel
+description: Public mission, essays, and whitepaper drafts for a governed multi-agent runtime.
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - series/outline.md
+  - whitepaper/outline.md
+
