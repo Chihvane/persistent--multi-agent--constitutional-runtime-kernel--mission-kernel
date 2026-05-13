@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security-sensitive disclosure
+    url: https://github.com/Chihvane/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel/security/advisories/new
+    about: Do not post sensitive disclosure details in public issues.

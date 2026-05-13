@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you cite this public mission repository, please cite it as below."
+title: "constitutional_runtime: Public Mission Kernel"
+type: generic
+authors:
+  - name: "constitutional_runtime authors"
+repository-code: "https://github.com/Chihvane/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel"
+url: "https://chihvane.github.io/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel"
+date-released: "2026-05-14"

@@ -1,10 +1,15 @@
 .DS_Store
 .env
 .env.*
+!.internal/engineering/site/.env.example
 node_modules/
+.bundle/
+vendor/bundle/
 dist/
 build/
 .cache/
+.playwright-mcp/
+.internal/local/
 .jekyll-cache/
 _site/
 *.log
@@ -13,4 +18,4 @@ _site/
 chapter1_reference_matrix.zip
 chapter1-EN.zip
 chapter1_publishing_package_v3_en.zip
-chapters/chapter-01/references/raw/
+chapter1/references/raw/

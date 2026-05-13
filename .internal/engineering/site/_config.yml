@@ -1,0 +1,30 @@
+title: constitutional_runtime
+description: Public mission, essays, and whitepaper drafts for a governed multi-agent runtime.
+url: "https://chihvane.github.io"
+baseurl: "/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel"
+repository: Chihvane/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel
+author: constitutional_runtime authors
+lang: en
+timezone: Asia/Shanghai
+theme: minima
+markdown: kramdown
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - .internal/unpublished/series/outline.md
+  - chapter1/README.md
+  - .internal/unpublished/whitepaper/outline.md
+  - .internal/repository/policy/PUBLIC_RELEASE.md
+
+exclude:
+  - .cache/
+  - .internal/engineering/github/
+  - .env
+  - .internal/engineering/site/Gemfile
+  - .internal/engineering/site/Gemfile.lock
+  - .internal/engineering/scripts/
+  - .internal/unpublished/wiki/README.md
+  - .internal/unpublished/publishing/wiki-sync.md

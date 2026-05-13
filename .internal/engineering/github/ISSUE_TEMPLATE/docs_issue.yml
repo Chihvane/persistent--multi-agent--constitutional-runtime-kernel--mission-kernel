@@ -1,0 +1,39 @@
+name: Documentation or publishing issue
+description: Report a public documentation, citation, or publishing problem.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Public surface
+      options:
+        - README or repository map
+        - GitHub Pages
+        - GitHub Wiki
+        - Chapter 1 package
+        - Citation evidence
+        - Hugging Face package
+        - Substack package
+        - Whitepaper or glossary
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe what is wrong or unclear.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected correction
+      description: If you know the desired fix, describe it here.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or links
+      description: Add source links, screenshots, or citation context when relevant.
