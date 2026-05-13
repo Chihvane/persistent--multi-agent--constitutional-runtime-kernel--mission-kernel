@@ -3,23 +3,24 @@ layout: page
 title: Chapter 1 Final v3
 ---
 
-# Chapter 1 Final v3
+# Chapter 1 Final v3 Version Map
 
 **Series:** *From Single-Agent OS to Constitutional Runtime*
 
-**Chapter:** Agent OS 的结构性失稳:为什么长期 AI 工作需要任务归属、权限、审计与合法结案
+**Chapter:** Agent OS 的结构性失稳 / Structural Instability in Agent OS
 
 **Date:** 2026-05-14
 
-## Canonical Artifact
+## Canonical Artifacts
 
-The final authority for Chapter 1 is:
+The final authority for each language edition is its PDF:
 
-- [chapter1.pdf](./package-v3/chapter1.pdf)
+- [Chinese final PDF](./package-v3/chapter1.pdf)
+- [English final PDF](./package-v3-en/chapter1.pdf)
 
-This PDF is the canonical source for both final formatting and final text.
+These PDFs are the canonical sources for final formatting and final text.
 
-## Package Files
+## Chinese Package Files
 
 - [chapter1.md](./package-v3/chapter1.md): full Markdown source with pandoc div blocks and pre-rendered figure PNG references
 - [chapter1.docx](./package-v3/chapter1.docx): Word edition
@@ -29,13 +30,26 @@ This PDF is the canonical source for both final formatting and final text.
 - [Package README](./package-v3/README.md): upstream publishing notes and pre-publish checklist
 - [Reference Evidence Index](../references/): citation matrix and source-evidence manifest
 
+## English Package Files
+
+- [English landing page](./en/)
+- [chapter1.md](./package-v3-en/chapter1.md): full native English Markdown source
+- [chapter1.docx](./package-v3-en/chapter1.docx): Word edition
+- [chapter1.pdf](./package-v3-en/chapter1.pdf): 17-page canonical English PDF
+- [diagrams](./package-v3-en/diagrams/): 10 English figure PNGs and Mermaid sources
+- [Package README](./package-v3-en/README.md): English package notes
+
 ## Platform Editions
 
-- [GitHub Pages edition](./github-pages.md): styled web edition with definition/example boxes preserved
-- [Substack package](../../../publishing/chapter-01/substack/): flattened paste edition plus figure assets
-- [Hugging Face package](../../../publishing/chapter-01/hugging-face/): README edition plus figure assets and canonical PDF
-- [Conversion manifest](../../../publishing/chapter-01/conversion-manifest.md): source hashes and conversion rules
+- [Chinese GitHub Pages edition](./github-pages.md): styled web edition with definition/example boxes preserved
+- [English GitHub Pages edition](./en/github-pages.md): styled web edition with definition/example boxes preserved
+- [Chinese Substack package](../../../publishing/chapter-01/substack/): flattened paste edition plus figure assets
+- [English Substack package](../../../publishing/chapter-01/en/substack/): flattened paste edition plus figure assets
+- [Chinese Hugging Face package](../../../publishing/chapter-01/hugging-face/): README edition plus figure assets and canonical PDF
+- [English Hugging Face package](../../../publishing/chapter-01/en/hugging-face/): README edition plus figure assets and canonical PDF
+- [Chinese conversion manifest](../../../publishing/chapter-01/conversion-manifest.md): source hashes and conversion rules
+- [English conversion manifest](../../../publishing/chapter-01/en/conversion-manifest.md): source hashes and conversion rules
 
 ## Publication Rule
 
-Use `chapter1.pdf` as the final reference when preparing GitHub Pages, Hugging Face, and Substack versions. If any platform-specific text differs from the PDF, the PDF wins.
+Use the matching `chapter1.pdf` as the final reference when preparing GitHub Pages, Hugging Face, and Substack versions. If any platform-specific text differs from the PDF, the PDF wins.

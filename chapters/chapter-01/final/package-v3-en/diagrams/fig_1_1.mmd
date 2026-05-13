@@ -1,0 +1,13 @@
+sequenceDiagram
+    autonumber
+    participant U as User
+    participant A as Agent
+    participant C as Context / Compaction
+    U->>A: Prepare launch materials for Product A [Mission M1]
+    A->>C: M1.owner=User, M1.scope=A
+    Note over A,C: 20 turns of normal progress on A
+    U->>A: "Btw, draft talking points for B" (support tier)
+    Note over C: Compaction fires<br/>Summary keeps "discussed A and B"<br/>but main/support relation is lost
+    A->>A: A and B now weighted equally
+    A->>U: Drafting timeline around B
+    Note over A: System believes it's still M1<br/>but M1.scope has silently drifted

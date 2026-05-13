@@ -1,0 +1,19 @@
+flowchart TD
+    M[Memory<br/>content the system has seen]
+    G{Evidence Gate<br/>admissibility check}
+    C[Canonical Evidence<br/>may rewrite current state]
+    S[Side Evidence<br/>reference only, no writes]
+    P[Projection<br/>external mirror, no canonical effect]
+    A[Archive<br/>historical, not current]
+
+    M --> G
+    G -->|trusted source + not expired + mission-relevant| C
+    G -->|trusted but informal| S
+    G -->|external projection| P
+    G -->|historical, expired| A
+
+    style C fill:#d4edda,stroke:#2e7d32,stroke-width:2px
+    style S fill:#fff3cd,stroke:#aaa
+    style P fill:#e2e3e5,stroke:#aaa
+    style A fill:#e2e3e5,stroke:#aaa
+    style G fill:#fff8e1,stroke:#c0392b,stroke-width:2px

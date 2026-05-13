@@ -1,0 +1,38 @@
+flowchart TB
+    Mission([Mission Record])
+
+    subgraph Actors[Actor fields — must be explicitly recorded]
+      direction LR
+      A1[requester]
+      A2[root_owner]
+      A3[current_owner]
+      A4[support_actor]
+      A5[recon_actor]
+    end
+
+    subgraph Rights[Authority rights — must be explicitly declared]
+      direction LR
+      R1[audit_right]
+      R2[escalation_right]
+      R3[capability_scope]
+      R4[state_delta_right]
+      R5[closure_authority]
+    end
+
+    subgraph Events[Receipt-bearing events — must sign a receipt]
+      direction LR
+      E1[owner change]
+      E2[route change]
+      E3[audit insertion]
+      E4[state delta]
+      E5[mission closure]
+    end
+
+    Mission --> Actors
+    Mission --> Rights
+    Mission --> Events
+
+    style Mission fill:#1F4E79,color:#fff,stroke-width:2px
+    style Actors fill:#e6f0fa,stroke:#1F4E79
+    style Rights fill:#fff3cd,stroke:#c79100
+    style Events fill:#d4edda,stroke:#2e7d32

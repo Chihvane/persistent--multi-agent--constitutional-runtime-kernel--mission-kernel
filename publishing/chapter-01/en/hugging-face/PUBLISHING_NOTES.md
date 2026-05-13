@@ -1,4 +1,4 @@
-# Hugging Face Publishing Notes (Chinese)
+# Hugging Face Publishing Notes (English)
 
 Use `README.md` as the Hugging Face project or Space README.
 

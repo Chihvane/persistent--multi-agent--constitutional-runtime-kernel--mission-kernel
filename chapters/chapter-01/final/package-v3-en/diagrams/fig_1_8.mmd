@@ -1,0 +1,16 @@
+flowchart TD
+    Q{At every step, the agent must commit<br/>to one of these six actions}
+    Q --> C[continue<br/>enough evidence + clear authority]
+    Q --> D[deny<br/>request exceeds authority]
+    Q --> H[hold<br/>waiting on external input]
+    Q --> E[escalate<br/>kick to a higher-authority node]
+    Q --> AU[audit_flag<br/>state looks off, trigger audit]
+    Q --> CL[close<br/>all closure conditions met<br/>with closure receipt]
+
+    style Q fill:#fff8e1,stroke:#1F4E79,stroke-width:2px
+    style C fill:#d4edda,stroke:#2e7d32
+    style CL fill:#d4edda,stroke:#2e7d32
+    style D fill:#fff3cd,stroke:#c79100
+    style H fill:#fff3cd,stroke:#c79100
+    style E fill:#fff3cd,stroke:#c79100
+    style AU fill:#fdeeee,stroke:#c0392b

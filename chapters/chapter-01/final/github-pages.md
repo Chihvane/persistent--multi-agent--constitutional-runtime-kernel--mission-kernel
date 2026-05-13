@@ -4,7 +4,7 @@ title: Chapter 1 GitHub Pages Edition
 permalink: /chapters/chapter-01/final/github-pages/
 ---
 
-> Canonical final artifact: [chapter1.pdf](./package-v3/chapter1.pdf). This GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.
+> Canonical final artifact: [chapter1.pdf](./package-v3/chapter1.pdf). This Chinese GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.
 
 # From Single-Agent OS to Constitutional Runtime
 

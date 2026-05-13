@@ -1,6 +1,6 @@
-# Chapter 1 Platform Conversion Manifest
+# Chapter 1 Platform Conversion Manifest (Chinese)
 
-Generated platform editions for Chapter 1 final v3.
+Generated platform editions for Chapter 1 final v3 (Chinese).
 
 ## Canonical Source
 

@@ -9,19 +9,20 @@ title: Chapter 1
 
 ## Canonical Final
 
-The canonical Chapter 1 release is **Publishing Package v3**, dated 2026-05-14.
+The canonical Chapter 1 releases are **Publishing Package v3** and **Publishing Package v3-EN**, dated 2026-05-14.
 
-- [Final v3 Landing Page](./final/)
-- [Final PDF](./final/package-v3/chapter1.pdf)
-- [Final Markdown Source](./final/package-v3/chapter1.md)
-- [Final DOCX](./final/package-v3/chapter1.docx)
-- [Package README](./final/package-v3/README.md)
+- [Final Version Map](./final/)
+- [Chinese Final PDF](./final/package-v3/chapter1.pdf)
+- [Chinese Final Markdown Source](./final/package-v3/chapter1.md)
+- [English Final PDF](./final/package-v3-en/chapter1.pdf)
+- [English Final Markdown Source](./final/package-v3-en/chapter1.md)
+- [English Final Landing Page](./final/en/)
 
 ## Publishing Notes
 
-`chapter1.pdf` is the final authority for both layout and text. If Markdown, Substack, Hugging Face, or GitHub Pages versions diverge from the PDF, correct them against the PDF.
+Each language edition's `chapter1.pdf` is the final authority for both layout and text. If Markdown, Substack, Hugging Face, or GitHub Pages versions diverge from the matching PDF, correct them against the PDF.
 
-The package README says the full Markdown uses pandoc divs for red definition boxes and green example blocks. GitHub Pages should either link to the final PDF directly or use a converted page that preserves those blocks. Substack does not support those divs or custom CSS, so the article must be pasted with manual callouts/blockquotes or converted to a flattened Markdown edition.
+The package READMEs say the full Markdown uses pandoc divs for red definition boxes and green example blocks. GitHub Pages should either link to the final PDF directly or use a converted page that preserves those blocks. Substack does not support those divs or custom CSS, so the article must be pasted with manual callouts/blockquotes or converted to a flattened Markdown edition.
 
 ## Archive Drafts
 

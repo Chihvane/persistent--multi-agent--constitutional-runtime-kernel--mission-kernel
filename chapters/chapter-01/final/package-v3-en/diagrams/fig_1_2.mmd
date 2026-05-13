@@ -1,0 +1,12 @@
+sequenceDiagram
+    autonumber
+    participant U as User
+    participant A as Agent
+    participant M as Mission state
+    Note over M: Mission = Draft consulting proposal (mainline)
+    U->>A: "Take a look at what Acme's been doing lately" (support / recon)
+    Note over A,M: Agent doesn't tag this as support<br/>recon input is not isolated
+    A->>U: Returns detailed Acme analysis
+    Note over A,M: Agent absorbs the analysis into mission state<br/>as if it were owner-approved fact
+    A->>U: "What changes would you like to the Acme section?"
+    Note over U: User never authorized<br/>"rewrite the Acme section"

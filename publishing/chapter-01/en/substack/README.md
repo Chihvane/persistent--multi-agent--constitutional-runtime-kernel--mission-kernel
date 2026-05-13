@@ -1,4 +1,4 @@
-# Substack Publishing Package (Chinese)
+# Substack Publishing Package (English)
 
 Use `chapter1.substack.md` as the paste source for Substack.
 

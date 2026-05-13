@@ -1,0 +1,15 @@
+flowchart TB
+    subgraph WRONG["✗ Persona smuggled in as authority"]
+      direction LR
+      P1[persona shell<br/>string in prompt] --> R1[perceived role<br/>what the model reads out]
+      R1 --> A1[assumed authority<br/>treated as a power source]
+    end
+
+    subgraph RIGHT["✓ Correct authority chain"]
+      direction LR
+      C2[constitutional power<br/>defined at the constitutional layer] --> T2[typed authority role<br/>typed permission matrix]
+      T2 --> B2[runtime-bound participant<br/>verified by runtime]
+    end
+
+    style WRONG fill:#fdeeee,stroke:#c0392b,stroke-width:1.5px
+    style RIGHT fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px

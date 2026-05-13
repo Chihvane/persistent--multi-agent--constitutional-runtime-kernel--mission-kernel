@@ -1,0 +1,13 @@
+flowchart LR
+    M([mission]) --> AC[authority check]
+    AC --> CT[council template]
+    CT --> RP[role-scoped<br/>participation]
+    RP --> RC[receipt]
+    RC --> D([dissolve])
+
+    style M fill:#1F4E79,color:#fff
+    style AC fill:#fff3cd,stroke:#c79100
+    style CT fill:#fff3cd,stroke:#c79100
+    style RP fill:#fff3cd,stroke:#c79100
+    style RC fill:#d4edda,stroke:#2e7d32
+    style D fill:#e2e3e5,stroke:#aaa

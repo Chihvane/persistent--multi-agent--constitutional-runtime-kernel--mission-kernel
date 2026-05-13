@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph TL["Tool list answers"]
+      T1[What tools does<br/>the system have?]
+    end
+
+    TL ==>|not equivalent to| CR
+
+    subgraph CR["Capability registry answers"]
+      direction TB
+      C1[Who may invoke?]
+      C2[When may it be invoked?]
+      C3[For which mission?]
+      C4[What authority is required first?]
+      C5[What receipt is returned afterward?]
+      C6[May the result rewrite state?]
+      C1 ~~~ C2 ~~~ C3 ~~~ C4 ~~~ C5 ~~~ C6
+    end
+
+    style TL fill:#fdeeee,stroke:#c0392b,stroke-width:1.5px
+    style CR fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px

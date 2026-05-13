@@ -67,10 +67,14 @@ Reference evidence:
 
 Generated platform formats:
 
-- [GitHub Pages edition](../chapters/chapter-01/final/github-pages.md)
-- [Substack package](./chapter-01/substack/)
-- [Hugging Face package](./chapter-01/hugging-face/)
-- [Conversion manifest](./chapter-01/conversion-manifest.md)
+- [Chinese GitHub Pages edition](../chapters/chapter-01/final/github-pages.md)
+- [English GitHub Pages edition](../chapters/chapter-01/final/en/github-pages.md)
+- [Chinese Substack package](./chapter-01/substack/)
+- [English Substack package](./chapter-01/en/substack/)
+- [Chinese Hugging Face package](./chapter-01/hugging-face/)
+- [English Hugging Face package](./chapter-01/en/hugging-face/)
+- [Chinese conversion manifest](./chapter-01/conversion-manifest.md)
+- [English conversion manifest](./chapter-01/en/conversion-manifest.md)
 
 ## Publication Decision
 
