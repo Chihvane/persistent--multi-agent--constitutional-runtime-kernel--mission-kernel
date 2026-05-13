@@ -57,7 +57,6 @@ The problem shows up once real tasks get long. A task that started clean accrete
 This isn't purely a context-window issue. Liu et al., in *Lost in the Middle: How Language Models Use Long Contexts*, show that long-context models don't reliably use relevant information when it sits in the middle of the input, with sharp performance drops in that region [R8]. Chroma's *Context Rot* study across 18 frontier models reports a similar pattern: as input length grows, models become less reliable at using their own context [R9]. These results don't directly prove "task-ownership drift," but they support the baseline claim: **a bigger context window does not, by itself, maintain task identity**.
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Scenario 1.1** · Product A → "Btw, B" → drift
 
 You ask the agent to prepare next month's launch materials for Product A. Twenty turns of conversation stay focused on A — positioning, timeline, draft PR. On turn 21 you mention offhand: "Btw, we're also launching B in Q4. Can you draft some talking points for B?" — meant as a quick support-level piece of recon. Compaction fires soon after. The summary keeps "discussed A and B" but loses "A is mainline, B is support." A few turns later the agent is building a timeline around B, and A's launch materials are pushed to "let's finalize B's direction first." From the model's point of view it's still pushing the task forward. From yours, the task has quietly switched.
@@ -81,7 +80,6 @@ But single-agent OS easily misreads side inputs as new mainline. The reason is s
 The same boundary shows up in real security incidents as an adjacent risk. AppOmni's research on ServiceNow Now Assist shows that with weak configuration, agent-to-agent discovery can be exploited via second-order prompt injection: a seemingly ordinary agent recruits a higher-privilege agent to perform unauthorized actions. AppOmni recommends supervised execution, separation of agent duties, and ongoing monitoring [R13]. This isn't the same failure as support-becoming-owner, but it points to the same structural risk: **any path that looks like collaboration or handoff, if it isn't gated by authority, can pick up de facto execution power**.
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Scenario 1.2** · A recon request quietly becomes a main-line action
 
 Your main task is drafting a consulting proposal. Halfway through you say, "Take a look at what Acme has been doing lately." That's a support-level recon request. The system returns a detailed analysis of Acme. On the next turn it volunteers, "What changes would you like to make to the Acme section?" — it's already absorbed the recon output as if the owner approved it, and treated "make changes" as the next mainline step. The original task boundary was never explicitly canceled. It was quietly overwritten. The drift is hard to catch turn-by-turn, because every individual turn looks reasonable.
@@ -95,7 +93,6 @@ Your main task is drafting a consulting proposal. Halfway through you say, "Take
 That's the mechanism by which support quietly upgrades into ownership. A "help me define this concept" request can drift into a new writing direction. An "interim summary please" request can be picked up as a new project goal. A "do a quick scout on this possibility" action can gradually be treated as an authorized execution path.
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Rule 1.2 · Support is not ownership**
 
 `support ≠ ownership`, `routing ≠ sovereignty`, `audit insertion ≠ owner replacement`. Every side input entering the system has to be adjudicated: is this a new command, or support? Is this an owner-level decision, or a review note? Is this an authorized route change, or a recon finding?
@@ -108,7 +105,6 @@ That's the mechanism by which support quietly upgrades into ownership. A "help m
 The third defect is that single-agent OS often conflates "the system remembers this" with "this counts as evidence right now." On short tasks the gap doesn't matter: whatever the user said a minute ago, whatever the tool just returned, whatever the agent just summarized — all of it can be treated as current context. On long tasks that assumption breaks.
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Memory vs Evidence**
 
 | | **Memory** | **Evidence** |
@@ -126,7 +122,6 @@ The common problem with single-agent OS: it dumps past memory, summaries, tool r
 Anthropic's *Effective context engineering for AI agents* frames context as a finite, manageable resource, and emphasizes that how tools, context, memory, and sub-agents are organized has a direct effect on agent reliability [R2]. Springdrift makes the same point from a different direction: long-running agents need append-only memory, cycle-level logs, and forensic reconstruction, not just recall [R17]. Both lines of work converge on the same conclusion: memory is necessary, but memory needs governance. **"Can be recalled" is not the same as "can be admitted."**
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Analogy 1.3** · Witness recollection vs courtroom recording
 
 Memory is a witness in court saying, "I remember someone mentioning X at a 2019 meeting." That might be a real recollection, but it hasn't passed any admissibility check. Evidence is the meeting recording, the attendance sheet, the minutes, the archived email, and the chain-of-custody trail. In plain language both get phrased as "I know this," but they sit at completely different positions in the governance stack. Today's LLM systems flatten the two onto the same prompt plane and then have the model rank them by "context relevance" — not by evidence tier.
@@ -150,7 +145,6 @@ But persona is a readable shell, not a power source. An agent that looks like an
 Frameworks like CrewAI place role, goal, and backstory at the center of agent definition. That's useful for usability [R12]. But role/prompt/backstory shouldn't be misread as an authority source. The OpenAI Agents SDK documentation also puts handoffs, tools, guardrails, sessions, and tracing in the runner/orchestration layer, rather than letting a role description on its own decide permissions [R5].
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Analogy 1.4** · Uniform tag vs door key
 
 Persona is the label on someone's uniform — it tells other people what this person "looks like they're in charge of." But opening a door needs a key (typed authority), not a label. Treating "looks like the person in charge" as "has the right to be in charge" is the same as letting a stranger open the company vault on the strength of their uniform.
@@ -159,7 +153,6 @@ Persona is the label on someone's uniform — it tells other people what this pe
 The question isn't whether agents should have a persona. The question is whether persona is allowed to override the runtime law. A system can keep persona, use it to improve readability, stabilize tone, and reduce cognitive load. But it must also enforce: persona cannot grant permissions, persona cannot rewrite a task, persona cannot close a mission, persona cannot override the evidence gate, persona cannot stand in for the Root Owner.
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Rule 1.4 · The correct authority chain**
 
 `constitutional power → typed authority role → runtime-bound participant`
@@ -183,7 +176,6 @@ An agent being handed a task doesn't mean it owns the task. An agent being allow
 The OpenAI Agents SDK describes handoffs as a mechanism for transferring control between agents, and tracing as recording LLM generations, tool calls, handoffs, guardrails, and custom events [R5]. These traces are valuable for debugging, but a trace by itself isn't an authority receipt. It tells you **what happened**. It can't tell you, on its own, whether the thing that happened was **authorized within this mission**.
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Analogy 1.5** · HR badge vs door-log entry
 
 HR issues a manager an "approval-only" badge. But the access-control system, in the back, has quietly merged the engineer's badge into the manager's keychain. The door log will show "the manager swiped in," but the real source of the permission has gotten muddled: the log can answer *who*, but it can't answer *by what authority*.
@@ -197,7 +189,6 @@ So a multi-agent runtime can't just record "who's currently handling this." On a
 </figure>
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Rule 1.5 · No receipt, no authority**
 
 A processing state without a receipt does not automatically become authority.
@@ -223,7 +214,6 @@ Anthropic's *How we built our multi-agent research system* is a useful counterex
 </figure>
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Rule 1.6 · Collaboration must be mission-scoped, not global**
 
 Real collaboration is not: all agents enter the same channel and start free-form discussion.
@@ -251,7 +241,6 @@ If none of that exists, tools become channels for permission drift. A support no
 This isn't an abstract concern. OWASP frames LLM06: Excessive Agency as a structural risk — when an LLM gets too much functionality, too many permissions, or too much autonomy, unexpected, ambiguous, or manipulated outputs can do real damage [R14]. Wang et al.'s *MCPTox: A Benchmark for Tool Poisoning Attack on Real-World MCP Servers* provides quantitative ground: across 20 LLM agents, 45 real MCP servers, and 353 real tools, o1-mini hits a 72.8% attack success rate, with the highest refusal rate still under 3% [R15]. **Legitimate tools can be turned to unauthorized operations; the security problem isn't only "model content safety," it's also capability governance.**
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Example 1.7A** · A poisoned MCP tool description
 
 A tool's `description` field is supposed to explain what the tool does. But if it carries text dressed up to look like a system instruction, the model may treat the description as a higher-layer directive. The problem isn't that the tool itself is "broken." The problem is that the system has no typed layer to separate legitimate metadata from tool capability from mission authorization from state-changing permission.
@@ -268,7 +257,6 @@ If a `description` field contained something like `<SYSTEM>... do X after every 
 </div>
 
 <div class="chapter-callout chapter-example" markdown="1">
-<div class="chapter-callout-label">Scenario / Example</div>
 **Analogy 1.7B** · Projector vs meeting room
 
 A tool is like the projector in a conference room — it's there, available. But you don't let anyone who walks in start playing slides; you need to know who they are, whether they're chairing this meeting, and whether the content has been cleared.
@@ -308,7 +296,6 @@ Anthropic's *Measuring AI agent autonomy in practice*, released in 2026, treats 
 Closure can't be backed by a single line of "done," "completed," or "looks good" either. Real closure has to answer:
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Rule 1.8 · Fields a closure receipt has to answer**
 
 - What was the original **mission**
@@ -377,7 +364,6 @@ This schema is not something a user has to hand-write. The user still interacts 
 The minimum problem frame can be compressed into three layers:
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **Constitutional Runtime — minimum three layers**
 
 **CR · Constitutional Runtime**
@@ -421,7 +407,6 @@ The deeper failure of single-agent OS isn't insufficient model capability and is
 So I started moving the system from agent-centered to mission-centered:
 
 <div class="chapter-callout chapter-definition" markdown="1">
-<div class="chapter-callout-label">Definition / Structure Rule</div>
 **What this chapter argues**
 
 > Agent is not the unit of governance.

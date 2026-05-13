@@ -9,10 +9,12 @@
   --chapter-rule: #d7dce2;
   --chapter-paper: #fffdf9;
   --chapter-soft: #f7f8f8;
-  --chapter-red: #b93a2f;
-  --chapter-red-bg: #fff7f4;
-  --chapter-green: #367a46;
-  --chapter-green-bg: #f1f8ed;
+  --chapter-red: #c0392b;
+  --chapter-red-bg: #fefcfb;
+  --chapter-red-code-bg: #fdf3f1;
+  --chapter-green: #2e7d32;
+  --chapter-green-border: #82ad81;
+  --chapter-green-bg: #eaf1e5;
   --chapter-link: #225f8f;
   --chapter-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
   --chapter-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -157,41 +159,73 @@
 }
 
 .chapter-callout {
-  border-radius: 4px;
-  margin: 1.7rem 0 1.85rem;
-  padding: 1.05rem 1.25rem 1.15rem;
+  color: #1f2428;
+  font-family: var(--chapter-sans);
+  font-size: 0.98rem;
+  line-height: 1.68;
+  margin: 1.85rem 0 2rem;
+  padding: 1.55rem 1.85rem 1.65rem;
 }
 
-.chapter-callout-label {
+.chapter-callout > p:first-of-type {
   font-family: var(--chapter-sans);
-  font-size: 0.72rem;
-  font-weight: 760;
-  line-height: 1.1;
-  margin-bottom: 0.7rem;
-  text-transform: uppercase;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  margin: 0 0 1.05rem;
+}
+
+.chapter-callout > p:first-of-type strong:first-child {
+  font-weight: 780;
 }
 
 .chapter-definition {
   background: var(--chapter-red-bg);
-  border: 1.6px solid var(--chapter-red);
+  border: 2px solid var(--chapter-red);
+  border-radius: 2px;
 }
 
-.chapter-definition .chapter-callout-label {
+.chapter-definition > p:first-of-type {
   color: var(--chapter-red);
+  font-weight: 780;
+  margin-bottom: 1.15rem;
 }
 
 .chapter-example {
   background: var(--chapter-green-bg);
-  border: 1.4px solid #78a86d;
+  border: 1px solid var(--chapter-green-border);
+  border-radius: 3px;
+  box-shadow: inset 0 2px 0 rgba(46, 125, 50, 0.42), inset 0 -2px 0 rgba(46, 125, 50, 0.3);
+  padding: 1.55rem 1.85rem 1.75rem;
 }
 
-.chapter-example .chapter-callout-label {
+.chapter-example > p:first-of-type {
+  margin-bottom: 1.2rem;
+}
+
+.chapter-example > p:first-of-type::after {
+  border-top: 1px solid var(--chapter-green);
+  content: "";
+  display: block;
+  margin-top: 0.85rem;
+  opacity: 0.95;
+}
+
+.chapter-example > p:first-of-type strong:first-child {
   color: var(--chapter-green);
 }
 
-.chapter-callout strong:first-child {
-  font-family: var(--chapter-sans);
-  font-weight: 760;
+.chapter-definition code {
+  background: var(--chapter-red-code-bg);
+  border-color: #f3e1dd;
+}
+
+.chapter-callout table {
+  background: #ffffff;
+}
+
+.chapter-callout .chapter-figure {
+  margin: 1.35rem auto 0;
+  max-width: 86%;
 }
 
 .chapter-page code,
@@ -270,12 +304,25 @@
   border-radius: 4px;
 }
 
+.chapter-callout .chapter-figure img {
+  border: 0;
+  border-radius: 2px;
+}
+
 .chapter-figure figcaption {
   color: var(--chapter-muted);
   font-family: var(--chapter-sans);
   font-size: 0.78rem;
   line-height: 1.38;
   margin-top: 0.5rem;
+}
+
+.chapter-callout .chapter-figure figcaption {
+  color: #1f2428;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  margin-top: 0.7rem;
+  text-align: left;
 }
 
 .chapter-page ul,
@@ -329,6 +376,10 @@
   .chapter-callout {
     margin-left: -0.15rem;
     margin-right: -0.15rem;
-    padding: 0.95rem 0.95rem 1rem;
+    padding: 1.05rem 1rem 1.15rem;
+  }
+
+  .chapter-callout .chapter-figure {
+    max-width: 100%;
   }
 }

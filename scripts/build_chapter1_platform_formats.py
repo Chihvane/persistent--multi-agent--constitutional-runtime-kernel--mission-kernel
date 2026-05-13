@@ -108,12 +108,6 @@ def convert_images(text: str, prefix: str) -> str:
     return text.replace("](diagrams/", f"]({prefix}")
 
 
-def callout_label(kind: str, edition: Edition) -> str:
-    if edition.slug == "zh":
-        return "Definition / 结构规则" if kind == "definition" else "Scenario / 情景 / 类比"
-    return "Definition / Structure Rule" if kind == "definition" else "Scenario / Example"
-
-
 def convert_github_figures(text: str, edition: Edition) -> str:
     def repl(match: re.Match[str]) -> str:
         alt, path = match.groups()
@@ -137,9 +131,7 @@ def convert_github(text: str, edition: Edition) -> str:
         m = DIV_OPEN_RE.match(line)
         if m:
             kind = m.group(1)
-            label = callout_label(kind, edition)
             lines.append(f'<div class="chapter-callout chapter-{kind}" markdown="1">')
-            lines.append(f'<div class="chapter-callout-label">{label}</div>')
             continue
         if DIV_CLOSE_RE.match(line):
             lines.append("</div>")
