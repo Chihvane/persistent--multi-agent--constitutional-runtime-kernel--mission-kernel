@@ -31,6 +31,8 @@ Canonical final release package:
 - [Chapter 1 Final v3](./chapters/chapter-01/final/)
 - [Final PDF](./chapters/chapter-01/final/package-v3/chapter1.pdf)
 - [Final Markdown Source](./chapters/chapter-01/final/package-v3/chapter1.md)
+- [GitHub Pages Edition](./chapters/chapter-01/final/github-pages.md)
+- [Platform Publishing Package](./publishing/chapter-01/)
 - [Chapter 1 Publishing Guide](./publishing/chapter-01-v3-guide.md)
 
 Older four-version drafts remain in the repository for archival comparison only. The final v3 PDF is the formatting and text authority for Chapter 1.

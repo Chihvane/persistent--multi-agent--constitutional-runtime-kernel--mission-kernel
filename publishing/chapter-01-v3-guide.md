@@ -65,6 +65,13 @@ Reference evidence:
 - [Chapter 1 Reference Evidence](../chapters/chapter-01/references/)
 - [Citation Evidence Index](../chapters/chapter-01/references/citation-evidence-index.md)
 
+Generated platform formats:
+
+- [GitHub Pages edition](../chapters/chapter-01/final/github-pages.md)
+- [Substack package](./chapter-01/substack/)
+- [Hugging Face package](./chapter-01/hugging-face/)
+- [Conversion manifest](./chapter-01/conversion-manifest.md)
+
 ## Publication Decision
 
 For launch day, publish in this order:

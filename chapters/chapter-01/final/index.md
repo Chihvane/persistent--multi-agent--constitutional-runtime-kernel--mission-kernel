@@ -29,6 +29,13 @@ This PDF is the canonical source for both final formatting and final text.
 - [Package README](./package-v3/README.md): upstream publishing notes and pre-publish checklist
 - [Reference Evidence Index](../references/): citation matrix and source-evidence manifest
 
+## Platform Editions
+
+- [GitHub Pages edition](./github-pages.md): styled web edition with definition/example boxes preserved
+- [Substack package](../../../publishing/chapter-01/substack/): flattened paste edition plus figure assets
+- [Hugging Face package](../../../publishing/chapter-01/hugging-face/): README edition plus figure assets and canonical PDF
+- [Conversion manifest](../../../publishing/chapter-01/conversion-manifest.md): source hashes and conversion rules
+
 ## Publication Rule
 
 Use `chapter1.pdf` as the final reference when preparing GitHub Pages, Hugging Face, and Substack versions. If any platform-specific text differs from the PDF, the PDF wins.
