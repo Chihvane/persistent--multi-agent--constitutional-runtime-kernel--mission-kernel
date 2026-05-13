@@ -4,7 +4,9 @@ title: Chapter 1 English GitHub Pages Edition
 permalink: /chapters/chapter-01/final/en/github-pages/
 ---
 
-> Canonical final artifact: [chapter1.pdf](../package-v3-en/chapter1.pdf). This English GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.
+<article class="chapter-page chapter-page-en" markdown="1">
+
+<p class="chapter-canonical">Canonical final artifact: <a href="../package-v3-en/chapter1.pdf">chapter1.pdf</a>. This English GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.</p>
 
 # From Single-Agent OS to Constitutional Runtime
 
@@ -60,7 +62,10 @@ This isn't purely a context-window issue. Liu et al., in *Lost in the Middle: Ho
 
 You ask the agent to prepare next month's launch materials for Product A. Twenty turns of conversation stay focused on A — positioning, timeline, draft PR. On turn 21 you mention offhand: "Btw, we're also launching B in Q4. Can you draft some talking points for B?" — meant as a quick support-level piece of recon. Compaction fires soon after. The summary keeps "discussed A and B" but loses "A is mainline, B is support." A few turns later the agent is building a timeline around B, and A's launch materials are pushed to "let's finalize B's direction first." From the model's point of view it's still pushing the task forward. From yours, the task has quietly switched.
 
-![Figure 1.1 Task ownership drifts through support input and compaction](../package-v3-en/diagrams/fig_1_1.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_1.png" alt="Figure 1.1 Task ownership drifts through support input and compaction" loading="lazy">
+  <figcaption>Figure 1.1 Task ownership drifts through support input and compaction</figcaption>
+</figure>
 </div>
 
 So the first real defect that complex tasks expose isn't that single-agent OS is too dim, and it isn't just that the context window is too small. The deeper problem is the absence of a stable ownership structure. The system can keep talking, summarizing, and invoking tools, but it can't reliably maintain a mission's owner, authority, support, evidence, memory priority, and closure conditions over time.
@@ -81,7 +86,10 @@ The same boundary shows up in real security incidents as an adjacent risk. AppOm
 
 Your main task is drafting a consulting proposal. Halfway through you say, "Take a look at what Acme has been doing lately." That's a support-level recon request. The system returns a detailed analysis of Acme. On the next turn it volunteers, "What changes would you like to make to the Acme section?" — it's already absorbed the recon output as if the owner approved it, and treated "make changes" as the next mainline step. The original task boundary was never explicitly canceled. It was quietly overwritten. The drift is hard to catch turn-by-turn, because every individual turn looks reasonable.
 
-![Figure 1.2 A support-level recon request is silently promoted to a main-line action](../package-v3-en/diagrams/fig_1_2.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_2.png" alt="Figure 1.2 A support-level recon request is silently promoted to a main-line action" loading="lazy">
+  <figcaption>Figure 1.2 A support-level recon request is silently promoted to a main-line action</figcaption>
+</figure>
 </div>
 
 That's the mechanism by which support quietly upgrades into ownership. A "help me define this concept" request can drift into a new writing direction. An "interim summary please" request can be picked up as a new project goal. A "do a quick scout on this possibility" action can gradually be treated as an authorized execution path.
@@ -123,7 +131,10 @@ Anthropic's *Effective context engineering for AI agents* frames context as a fi
 
 Memory is a witness in court saying, "I remember someone mentioning X at a 2019 meeting." That might be a real recollection, but it hasn't passed any admissibility check. Evidence is the meeting recording, the attendance sheet, the minutes, the archived email, and the chain-of-custody trail. In plain language both get phrased as "I know this," but they sit at completely different positions in the governance stack. Today's LLM systems flatten the two onto the same prompt plane and then have the model rank them by "context relevance" — not by evidence tier.
 
-![Figure 1.3 Memory must pass an evidence gate before it can affect current state](../package-v3-en/diagrams/fig_1_3.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_3.png" alt="Figure 1.3 Memory must pass an evidence gate before it can affect current state" loading="lazy">
+  <figcaption>Figure 1.3 Memory must pass an evidence gate before it can affect current state</figcaption>
+</figure>
 </div>
 
 So long-running AI systems can't only ask "what does the system remember." They also have to ask, "what evidence tier does each of these memories belong to?" `canonical truth`, `canonical evidence`, `side evidence`, `projection surface`, `compatibility mirror`, and `archive evidence` have to be distinguishable. Memory may enter the system, but only after the evidence gate, the authority gate, and the current-state gate should it become `canonical evidence`.
@@ -155,7 +166,10 @@ The question isn't whether agents should have a persona. The question is whether
 
 not `persona shell → perceived role → assumed authority`.
 
-![Figure 1.4 The persona shell cannot become the law source](../package-v3-en/diagrams/fig_1_4.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_4.png" alt="Figure 1.4 The persona shell cannot become the law source" loading="lazy">
+  <figcaption>Figure 1.4 The persona shell cannot become the law source</figcaption>
+</figure>
 </div>
 
 ---
@@ -177,7 +191,10 @@ HR issues a manager an "approval-only" badge. But the access-control system, in 
 
 So a multi-agent runtime can't just record "who's currently handling this." On a mission record it has to preserve the full identity structure below, and **every change has to sign a receipt**:
 
-![Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution](../package-v3-en/diagrams/fig_1_5.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_5.png" alt="Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution" loading="lazy">
+  <figcaption>Figure 1.5 Authority is a set of typed objects on the mission record, not a side-effect of execution</figcaption>
+</figure>
 
 <div class="chapter-callout chapter-definition" markdown="1">
 <div class="chapter-callout-label">Definition / Structure Rule</div>
@@ -200,7 +217,10 @@ On long, complex tasks it quickly degrades into context pollution. Global chat r
 
 Anthropic's *How we built our multi-agent research system* is a useful counterexample. They run an orchestrator-workers pattern: subagents get their own tools, prompts, and exploration trajectories, and they return condensed results to a lead agent. The post explicitly cites separation of concerns and reduced path dependency as the value of this design [R3]. The lesson: mature collaboration isn't all agents piling into one shared chat. It's keeping mission state and role-scoped work apart.
 
-![Figure 1.6 Group chat (left) vs mission-governed orchestration (right)](../package-v3-en/diagrams/fig_1_6.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_6.png" alt="Figure 1.6 Group chat (left) vs mission-governed orchestration (right)" loading="lazy">
+  <figcaption>Figure 1.6 Group chat (left) vs mission-governed orchestration (right)</figcaption>
+</figure>
 
 <div class="chapter-callout chapter-definition" markdown="1">
 <div class="chapter-callout-label">Definition / Structure Rule</div>
@@ -210,7 +230,10 @@ Real collaboration is not: all agents enter the same channel and start free-form
 
 It looks more like:
 
-![Figure 1.6b Council lifecycle for a single mission](../package-v3-en/diagrams/fig_1_6b.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_6b.png" alt="Figure 1.6b Council lifecycle for a single mission" loading="lazy">
+  <figcaption>Figure 1.6b Council lifecycle for a single mission</figcaption>
+</figure>
 
 Once the task is done, the council dissolves. Without this discipline, multi-agent collaboration is just the linear context problem of single-agent OS scaled to multiple speakers — not an organizational architecture but a more complicated context pollution.
 </div>
@@ -255,7 +278,10 @@ A tool is like the projector in a conference room — it's there, available. But
 
 The two have to be independent runtime objects.
 
-![Figure 1.7 Tool list vs capability registry](../package-v3-en/diagrams/fig_1_7.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_7.png" alt="Figure 1.7 Tool list vs capability registry" loading="lazy">
+  <figcaption>Figure 1.7 Tool list vs capability registry</figcaption>
+</figure>
 </div>
 
 So tool list and capability registry have to be separate. An endpoint being online doesn't make it an authorized agent. A plugin existing doesn't give it authority. A successful tool call doesn't make the resulting state delta legitimate. A gateway routing a message doesn't give it task sovereignty.
@@ -272,7 +298,10 @@ Many agent systems treat stopping as failure. Out of evidence? Generate a smooth
 
 Anthropic's *Measuring AI agent autonomy in practice*, released in 2026, treats agent-initiated stop as a measurable deployed-system oversight signal, and identifies a model proactively recognizing its own uncertainty and asking for clarification as an important safety property [R16]. An earlier paper by overlapping authors, *Effective harnesses for long-running agents*, admits the inverse failure directly — long-running agents need structured progress, tests, state records, and checkable stop conditions, instead of letting the next agent see "already in progress" and declare it done [R7]. The conclusion is consistent with the position here: **stopping isn't failure; unauthorized continuation is**.
 
-![Figure 1.8 Continue is only one of six lawful runtime actions](../package-v3-en/diagrams/fig_1_8.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_8.png" alt="Figure 1.8 Continue is only one of six lawful runtime actions" loading="lazy">
+  <figcaption>Figure 1.8 Continue is only one of six lawful runtime actions</figcaption>
+</figure>
 
 `deny`, `hold`, `escalate`, `audit_flag` aren't failure actions. Like `continue` and `close`, they're legitimate runtime behaviors. When the system only knows how to `continue`, it has already given up half its state space.
 
@@ -305,7 +334,10 @@ At this point the problems stop looking like eight unrelated bugs.
 
 Ownership drift, support quietly turning into ownership, memory conflated with evidence, persona smuggled in as authority, the delegation chain becoming an authority chain, global-chat pollution, runaway tool calls, the inability to lawfully stop — on the surface they happen in different parts of the system. Some look like memory problems, some look like prompt problems, some look like tool problems, some look like multi-agent coordination problems. The underlying structure is the same: **single-agent OS has packed too many system responsibilities into a single continuous conversation**.
 
-![Figure 1.9 Eight defects are different expressions of one overloaded conversation structure](../package-v3-en/diagrams/fig_1_9.png)
+<figure class="chapter-figure">
+  <img src="../package-v3-en/diagrams/fig_1_9.png" alt="Figure 1.9 Eight defects are different expressions of one overloaded conversation structure" loading="lazy">
+  <figcaption>Figure 1.9 Eight defects are different expressions of one overloaded conversation structure</figcaption>
+</figure>
 
 The conversation carries task ownership. Memory carries evidence judgment. Persona carries permission interpretation. The tool list carries capability governance. Handoff carries the organizational relationship. "Keep generating" carries forward motion. A single "done" carries closure. On short tasks this compression still works, because boundaries are short, semantic loss is small, and the user can correct the system in the loop. On long tasks the responsibilities start to contaminate each other.
 
@@ -458,3 +490,5 @@ If the problem really is organizational, the chapters after this one shouldn't k
 *Reddit, X.com, and Substack results were consulted as field reports for developer pain around context compaction, premature "done", stale state, and long-running coding-agent workflows. They are not used as primary evidence in this published version. The evidence chain above relies on vendor engineering posts, official documentation, benchmark papers, security reports, and peer-reviewed or preprint research.*
 
 *All citation links verified 2026-05-14.*
+
+</article>

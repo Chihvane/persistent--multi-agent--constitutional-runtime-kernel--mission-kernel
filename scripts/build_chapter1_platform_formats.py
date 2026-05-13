@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import html
 import re
 import shutil
 from dataclasses import dataclass
@@ -107,13 +108,36 @@ def convert_images(text: str, prefix: str) -> str:
     return text.replace("](diagrams/", f"]({prefix}")
 
 
+def callout_label(kind: str, edition: Edition) -> str:
+    if edition.slug == "zh":
+        return "Definition / 结构规则" if kind == "definition" else "Scenario / 情景 / 类比"
+    return "Definition / Structure Rule" if kind == "definition" else "Scenario / Example"
+
+
+def convert_github_figures(text: str, edition: Edition) -> str:
+    def repl(match: re.Match[str]) -> str:
+        alt, path = match.groups()
+        filename = Path(path).name
+        src = f"{edition.github_diagram_prefix}{filename}"
+        escaped_alt = html.escape(alt, quote=True)
+        caption = html.escape(alt)
+        return (
+            f'<figure class="chapter-figure">\n'
+            f'  <img src="{src}" alt="{escaped_alt}" loading="lazy">\n'
+            f'  <figcaption>{caption}</figcaption>\n'
+            f'</figure>'
+        )
+
+    return IMAGE_RE.sub(repl, text)
+
+
 def convert_github(text: str, edition: Edition) -> str:
     lines: list[str] = []
     for line in text.splitlines():
         m = DIV_OPEN_RE.match(line)
         if m:
             kind = m.group(1)
-            label = "Definition / Structure Rule" if kind == "definition" else "Scenario / Example"
+            label = callout_label(kind, edition)
             lines.append(f'<div class="chapter-callout chapter-{kind}" markdown="1">')
             lines.append(f'<div class="chapter-callout-label">{label}</div>')
             continue
@@ -123,16 +147,20 @@ def convert_github(text: str, edition: Edition) -> str:
         lines.append(line)
 
     body = "\n".join(lines)
-    body = convert_images(body, edition.github_diagram_prefix)
+    body = convert_github_figures(body, edition)
     return f"""---
 layout: page
 title: {edition.github_title}
 permalink: {edition.github_permalink}
 ---
 
-> Canonical final artifact: [chapter1.pdf]({edition.github_pdf_link}). This {edition.label} GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.
+<article class="chapter-page chapter-page-{edition.slug}" markdown="1">
+
+<p class="chapter-canonical">Canonical final artifact: <a href="{edition.github_pdf_link}">chapter1.pdf</a>. This {edition.label} GitHub Pages edition is generated from the Chapter 1 final v3 source package and preserves the final PDF text, diagrams, and definition/example blocks for web reading.</p>
 
 {body}
+
+</article>
 """
 
 

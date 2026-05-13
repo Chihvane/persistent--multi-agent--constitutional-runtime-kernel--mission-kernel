@@ -2,6 +2,8 @@ title: constitutional_runtime
 description: Public mission, essays, and whitepaper drafts for a governed multi-agent runtime.
 theme: minima
 markdown: kramdown
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
 plugins:
   - jekyll-feed
 
