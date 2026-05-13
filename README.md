@@ -26,14 +26,15 @@ Start here:
 
 **Agent OS Structural Instability: Why Long-Horizon AI Work Needs Task Ownership, Permissions, Audit, and Legitimate Closure**
 
-Available drafts:
+Canonical final release package:
 
-- [English, Readable](./chapters/chapter-01/en/readable.md)
-- [English, Technical](./chapters/chapter-01/en/technical.md)
-- [Chinese, Readable](./chapters/chapter-01/zh/readable.md)
-- [Chinese, Technical](./chapters/chapter-01/zh/technical.md)
+- [Chapter 1 Final v3](./chapters/chapter-01/final/)
+- [Final PDF](./chapters/chapter-01/final/package-v3/chapter1.pdf)
+- [Final Markdown Source](./chapters/chapter-01/final/package-v3/chapter1.md)
+- [Chapter 1 Publishing Guide](./publishing/chapter-01-v3-guide.md)
+
+Older four-version drafts remain in the repository for archival comparison only. The final v3 PDF is the formatting and text authority for Chapter 1.
 
 ## Repository Policy
 
 This repository intentionally contains public-facing explanations, essays, diagrams, and technical notes. It should not contain private implementation details, credentials, unpublished source code, private prompts, private logs, or internal operational data from the source repository.
-

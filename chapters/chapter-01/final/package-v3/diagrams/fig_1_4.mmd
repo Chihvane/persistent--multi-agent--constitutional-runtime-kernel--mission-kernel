@@ -1,0 +1,15 @@
+flowchart TB
+    subgraph WRONG["✗ Persona shell 偷渡成 authority"]
+      direction LR
+      P1[persona shell<br/>prompt 里的字符串] --> R1[perceived role<br/>模型理解出的角色]
+      R1 --> A1[assumed authority<br/>被当作权限来源]
+    end
+
+    subgraph RIGHT["✓ 正确的 authority 链"]
+      direction LR
+      C2[constitutional power<br/>系统宪法层定义] --> T2[typed authority role<br/>带 typed 权限矩阵]
+      T2 --> B2[runtime-bound participant<br/>由 runtime 验证]
+    end
+
+    style WRONG fill:#fdeeee,stroke:#c0392b,stroke-width:1.5px
+    style RIGHT fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px

@@ -1,0 +1,16 @@
+flowchart TD
+    Q{Agent 在每一步前<br/>必须能定位到下面六个动作之一}
+    Q --> C[continue<br/>证据充足 + 授权清晰]
+    Q --> D[deny<br/>请求超出权限范围]
+    Q --> H[hold<br/>等待外部输入]
+    Q --> E[escalate<br/>升级到更高权限节点]
+    Q --> AU[audit_flag<br/>状态可疑,触发审计]
+    Q --> CL[close<br/>满足全部 closure 条件<br/>带 closure receipt]
+
+    style Q fill:#fff8e1,stroke:#1F4E79,stroke-width:2px
+    style C fill:#d4edda,stroke:#2e7d32
+    style CL fill:#d4edda,stroke:#2e7d32
+    style D fill:#fff3cd,stroke:#c79100
+    style H fill:#fff3cd,stroke:#c79100
+    style E fill:#fff3cd,stroke:#c79100
+    style AU fill:#fdeeee,stroke:#c0392b

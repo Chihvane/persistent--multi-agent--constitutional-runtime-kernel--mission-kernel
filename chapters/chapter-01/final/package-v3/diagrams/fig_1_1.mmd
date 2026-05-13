@@ -1,0 +1,13 @@
+sequenceDiagram
+    autonumber
+    participant U as 用户 User
+    participant A as Agent
+    participant C as Context / Compaction
+    U->>A: 准备产品 A 的发布材料 [Mission M1]
+    A->>C: M1.owner=User, M1.scope=A
+    Note over A,C: 前 20 轮对话围绕 A 推进正常
+    U->>A: 顺便帮我列 B 的 talking points (support 级)
+    Note over C: Compaction 触发<br/>摘要保留 "讨论了 A 与 B"<br/>但主线/support 关系丢失
+    A->>A: 上下文里 A 与 B 被视为等权重
+    A->>U: 开始围绕 B 制定 timeline
+    Note over A: 系统认为 M1 仍在推进<br/>但 M1.scope 已偷偷漂移

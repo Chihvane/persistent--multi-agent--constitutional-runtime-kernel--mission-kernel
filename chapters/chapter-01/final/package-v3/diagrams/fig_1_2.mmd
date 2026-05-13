@@ -1,0 +1,12 @@
+sequenceDiagram
+    autonumber
+    participant U as 用户
+    participant A as Agent
+    participant M as Mission state
+    Note over M: Mission = 起草咨询提案 (主线)
+    U->>A: 先帮我看一下竞品 Acme 最近的动作 (support / recon)
+    Note over A,M: agent 未把这条标记为 support<br/>recon 输入未隔离
+    A->>U: 提供 Acme 详细分析
+    Note over A,M: agent 把 Acme 分析吸收进 mission state<br/>当成 owner 已认可的事实
+    A->>U: 你希望针对 Acme 这部分做哪些改动?
+    Note over U: 用户从未授权过<br/>"重写 Acme 部分" 这个动作

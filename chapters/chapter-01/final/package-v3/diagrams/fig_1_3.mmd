@@ -1,0 +1,19 @@
+flowchart TD
+    M[Memory<br/>系统曾经看见的内容]
+    G{Evidence Gate<br/>证据资格判定}
+    C[Canonical Evidence<br/>可改写 current state]
+    S[Side Evidence<br/>仅供参考,不可写入]
+    P[Projection<br/>外部 mirror,不影响 canonical]
+    A[Archive<br/>历史归档,非当前]
+
+    M --> G
+    G -->|来源可信 + 未过期 + 任务相关| C
+    G -->|可信但不正式| S
+    G -->|外部投影| P
+    G -->|历史失效| A
+
+    style C fill:#d4edda,stroke:#2e7d32,stroke-width:2px
+    style S fill:#fff3cd,stroke:#aaa
+    style P fill:#e2e3e5,stroke:#aaa
+    style A fill:#e2e3e5,stroke:#aaa
+    style G fill:#fff8e1,stroke:#c0392b,stroke-width:2px

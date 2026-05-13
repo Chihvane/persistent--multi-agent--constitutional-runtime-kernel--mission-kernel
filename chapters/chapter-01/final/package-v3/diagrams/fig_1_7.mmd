@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph TL["Tool list 回答"]
+      T1[系统有哪些工具可以调用?]
+    end
+
+    TL ==>|不等价于| CR
+
+    subgraph CR["Capability registry 回答"]
+      direction TB
+      C1[谁能调用?]
+      C2[什么时候能调用?]
+      C3[为了哪个 mission 调用?]
+      C4[调用前需要什么 authority?]
+      C5[调用后返回什么 receipt?]
+      C6[结果能否改写 state?]
+      C1 ~~~ C2 ~~~ C3 ~~~ C4 ~~~ C5 ~~~ C6
+    end
+
+    style TL fill:#fdeeee,stroke:#c0392b,stroke-width:1.5px
+    style CR fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px

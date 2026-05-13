@@ -1,0 +1,33 @@
+flowchart LR
+    subgraph GLOBAL["Pattern A · Group chat（每次发言污染所有人）"]
+      direction TB
+      G_L[Lead]
+      G_R[Recon]
+      G_W[Worker]
+      G_A[Audit]
+      G_L <--> G_R
+      G_L <--> G_W
+      G_L <--> G_A
+      G_R <--> G_W
+      G_R <--> G_A
+      G_W <--> G_A
+    end
+
+    GLOBAL ~~~ ORCH
+
+    subgraph ORCH["Pattern B · Orchestrator-workers（mission-governed）"]
+      direction TB
+      O[Orchestrator<br/>持有 mission state]
+      S1[Subagent A<br/>独立 context]
+      S2[Subagent B<br/>独立 context]
+      S3[Subagent C<br/>独立 context]
+      O --> S1
+      O --> S2
+      O --> S3
+      S1 -.->|condensed| O
+      S2 -.->|condensed| O
+      S3 -.->|condensed| O
+    end
+
+    style GLOBAL fill:#fdeeee,stroke:#c0392b,stroke-width:1.5px
+    style ORCH fill:#e8f5e9,stroke:#2e7d32,stroke-width:1.5px

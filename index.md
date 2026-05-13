@@ -12,7 +12,7 @@ The central claim is simple: long-horizon AI work cannot be made reliable by mak
 ## Start Reading
 
 - [Series Outline](./series/outline.md)
-- [Chapter 1 Version Map](./chapters/chapter-01/)
+- [Chapter 1 Final v3](./chapters/chapter-01/final/)
 - [Whitepaper Outline](./whitepaper/outline.md)
 
 ## Publication Targets
@@ -20,4 +20,3 @@ The central claim is simple: long-horizon AI work cannot be made reliable by mak
 - GitHub Pages
 - Hugging Face
 - Substack
-
