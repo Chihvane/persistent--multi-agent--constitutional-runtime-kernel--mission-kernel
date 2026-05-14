@@ -14,8 +14,8 @@ Use this repository as the canonical public source. GitHub Pages can render the 
 Recommended launch path:
 
 1. Publish the repository as a public docs repository.
-2. Enable GitHub Pages from the main branch root.
-3. Use `index.md` as the site landing page.
+2. Enable GitHub Pages with GitHub Actions.
+3. Use `.github/workflows/pages.yml` as the active Pages workflow.
 4. Use `chapter1/final-draft-v3/` as the Chapter 1 launch page.
 5. Link `chapter1.pdf` as the canonical final artifact.
 

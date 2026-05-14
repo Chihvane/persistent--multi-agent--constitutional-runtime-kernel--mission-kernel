@@ -5,6 +5,8 @@ title: Chapter 1
 
 # Chapter 1 Version Map
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 **Agent OS Structural Instability: Why Long-Horizon AI Work Needs Task Ownership, Permissions, Audit, and Legitimate Closure**
 
 ## Canonical Final

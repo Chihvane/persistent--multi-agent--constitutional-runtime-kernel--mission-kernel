@@ -46,9 +46,25 @@ Set these after the repository is pushed:
 
 ## Required Workflows
 
-- `.internal/engineering/github/workflows/public-check.yml`: runs `make -f .internal/engineering/Makefile check` on pushes and pull
+- `.github/workflows/public-check.yml`: active GitHub workflow that runs `make -f .internal/engineering/Makefile check` on pushes and pull
   requests.
-- `.internal/engineering/github/workflows/pages.yml`: builds and deploys GitHub Pages.
+- `.github/workflows/pages.yml`: active GitHub workflow that builds and deploys GitHub Pages.
+- `.internal/engineering/github/workflows/public-check.yml`: engineering-side authoring copy.
+- `.internal/engineering/github/workflows/pages.yml`: engineering-side authoring copy.
+
+## Public GitHub Community Files
+
+Active GitHub-facing files live in `.github/`:
+
+- `.github/ISSUE_TEMPLATE/docs_issue.yml`
+- `.github/ISSUE_TEMPLATE/config.yml`
+- `.github/pull_request_template.md`
+- `.github/CONTRIBUTING.md`
+- `.github/SECURITY.md`
+- `.github/SUPPORT.md`
+- `.github/CODEOWNERS`
+
+These files are bilingual so English and Simplified Chinese readers can choose their preferred path from the repository page, issues, and pull requests.
 
 ## Launch Environment Variables
 

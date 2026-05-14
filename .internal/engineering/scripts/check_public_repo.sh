@@ -20,6 +20,17 @@ require_file() {
 
 required_files=(
   README.md
+  README.en.md
+  README.zh-CN.md
+  .github/workflows/pages.yml
+  .github/workflows/public-check.yml
+  .github/pull_request_template.md
+  .github/ISSUE_TEMPLATE/config.yml
+  .github/ISSUE_TEMPLATE/docs_issue.yml
+  .github/CONTRIBUTING.md
+  .github/SECURITY.md
+  .github/SUPPORT.md
+  .github/CODEOWNERS
   .internal/repository/legal/LICENSE.md
   .internal/repository/policy/CONTRIBUTING.md
   .internal/repository/policy/SECURITY.md
@@ -78,7 +89,7 @@ unexpected_root_entries=()
 while IFS= read -r entry; do
   name="${entry#./}"
   case "$name" in
-    .git|.gitignore|.internal|README.md|chapter1)
+    .git|.gitignore|.internal|README.md|README.en.md|README.zh-CN.md|.github|chapter1)
       ;;
     *)
       unexpected_root_entries+=("$name")
@@ -88,7 +99,7 @@ done < <(find . -mindepth 1 -maxdepth 1 -print)
 
 if ((${#unexpected_root_entries[@]} > 0)); then
   printf '%s\n' "${unexpected_root_entries[@]}"
-  fail "Unexpected root-level entries found. Keep root visible topology to README.md, chapter1/, and hidden internals."
+  fail "Unexpected root-level entries found. Keep root visible topology to README language entries, .github/, chapter1/, and hidden internals."
 fi
 
 forbidden_tracked=()
@@ -134,12 +145,24 @@ if ! rg -q 'actions/deploy-pages@v4' .internal/engineering/github/workflows/page
   fail "GitHub Pages workflow must deploy with actions/deploy-pages@v4."
 fi
 
+if ! rg -q 'actions/deploy-pages@v4' .github/workflows/pages.yml; then
+  fail "Active GitHub Pages workflow must deploy with actions/deploy-pages@v4."
+fi
+
 if ! rg -q 'make -f .internal/engineering/Makefile check' .internal/engineering/github/workflows/public-check.yml; then
   fail "Public readiness workflow must run make -f .internal/engineering/Makefile check."
 fi
 
+if ! rg -q 'make -f .internal/engineering/Makefile check' .github/workflows/public-check.yml; then
+  fail "Active public readiness workflow must run make -f .internal/engineering/Makefile check."
+fi
+
 if ! rg -q 'baseurl: "/persistent--multi-agent--constitutional-runtime-kernel--mission-kernel"' .internal/engineering/site/_config.yml; then
   fail ".internal/engineering/site/_config.yml must set the GitHub Pages project baseurl."
+fi
+
+if ! rg -q 'README.en.md' README.md || ! rg -q 'README.zh-CN.md' README.md; then
+  fail "README.md must expose English and Simplified Chinese language entries."
 fi
 
 if ! rg -q '.internal/unpublished/wiki/Home.md' README.md; then

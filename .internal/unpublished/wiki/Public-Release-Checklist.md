@@ -17,6 +17,16 @@ push.
 ## Required Public Files
 
 - `README.md`
+- `README.en.md`
+- `README.zh-CN.md`
+- `.github/workflows/pages.yml`
+- `.github/workflows/public-check.yml`
+- `.github/pull_request_template.md`
+- `.github/ISSUE_TEMPLATE/docs_issue.yml`
+- `.github/CONTRIBUTING.md`
+- `.github/SECURITY.md`
+- `.github/SUPPORT.md`
+- `.github/CODEOWNERS`
 - `.internal/repository/legal/LICENSE.md`
 - `.internal/repository/policy/CONTRIBUTING.md`
 - `.internal/repository/policy/SECURITY.md`
@@ -48,7 +58,7 @@ push.
 - Repository visibility is public only after `make -f .internal/engineering/Makefile check` passes.
 - GitHub Pages source is GitHub Actions.
 - Branch protection requires the public-readiness check before merging.
-- Issues and pull requests use the templates in `.internal/engineering/github/`.
+- Issues and pull requests use the active bilingual templates in `.github/`.
 - Wiki is enabled only after the source files in `.internal/unpublished/wiki/` have been reviewed.
 
 ## Final Gate

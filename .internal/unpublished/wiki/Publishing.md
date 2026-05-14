@@ -14,7 +14,7 @@ Required setup:
 
 - repository visibility: public
 - Pages source: GitHub Actions
-- workflow: `.internal/engineering/github/workflows/pages.yml`
+- workflow: `.github/workflows/pages.yml`
 - landing page: `index.md`
 - site config: `.internal/engineering/site/_config.yml`
 

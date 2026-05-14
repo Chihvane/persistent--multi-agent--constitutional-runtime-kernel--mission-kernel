@@ -41,7 +41,7 @@ After the repository is pushed:
 The repository includes a public gate:
 
 ```text
-.internal/engineering/github/workflows/public-check.yml
+.github/workflows/public-check.yml
 ```
 
 Require this workflow before merging to `main`. Locally, it runs the same gate:
@@ -49,6 +49,8 @@ Require this workflow before merging to `main`. Locally, it runs the same gate:
 ```bash
 make -f .internal/engineering/Makefile check
 ```
+
+The engineering-side authoring copy remains in `.internal/engineering/github/workflows/public-check.yml`.
 
 ## Wiki
 
